@@ -1,0 +1,8 @@
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/untitled.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/edit_cache.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/list_install_components.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/install.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/install/local.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/untitled_autogen_timestamp_deps.dir
+C:/Users/gegee/OneDrive/Документы/untitled/build/QT_6-Debug/CMakeFiles/untitled_autogen.dir
