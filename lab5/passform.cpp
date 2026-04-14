@@ -7,6 +7,7 @@
 #include <QFrame>
 #include <QLabel>
 #include <QPushButton>
+#include <Qdir>
 
 PassForm::PassForm(Person* p, int index, QWidget *parent)
     : QWidget(parent), person(p), rowIndex(index)
@@ -28,10 +29,12 @@ PassForm::PassForm(Person* p, int index, QWidget *parent)
     photo->setFixedSize(80, 80);
     photo->setFrameShape(QFrame::Box);
 
-    QPixmap pix(":/photo.png");
+    QPixmap pix("photo.png");
 
     if (pix.isNull()) {
-        qDebug() << "Картинка не загрузилась!";
+        qDebug() << "Не загружается из файловой системы!";
+    } else {
+        photo->setPixmap(pix.scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
     // ТЕКСТ

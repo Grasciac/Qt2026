@@ -36,7 +36,6 @@ MainWindow::MainWindow(QWidget *parent)
     // === ДОБАВЛЕНО ===
     table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
-    // =================
 
     frameLayout->addWidget(table);
 
