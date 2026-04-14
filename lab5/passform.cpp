@@ -34,9 +34,6 @@ PassForm::PassForm(Person* p, int index, QWidget *parent)
         qDebug() << "Картинка не загрузилась!";
     }
 
-    photo->setPixmap(pix.scaled(80, 80, Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    photo->setAlignment(Qt::AlignCenter);
-
     // ТЕКСТ
     QVBoxLayout *textLayout = new QVBoxLayout();
 

@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QFile>
 #include <QTextStream>
+#include <QHeaderView>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -19,7 +20,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     QVBoxLayout *mainLayout = new QVBoxLayout(central);
 
-    // Рамка (как на картинке)
     QFrame *frame = new QFrame(this);
     frame->setFrameShape(QFrame::Box);
     frame->setLineWidth(3);
@@ -33,14 +33,17 @@ MainWindow::MainWindow(QWidget *parent)
     table->setWordWrap(true);
     table->resizeRowsToContents();
 
+    // === ДОБАВЛЕНО ===
+    table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
+    table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+    // =================
+
     frameLayout->addWidget(table);
 
-    // Кнопка
     loadBtn = new QPushButton("Загрузить", this);
     loadBtn->setFixedWidth(120);
     loadBtn->setStyleSheet("background-color: lightblue;");
 
-    // Центрируем кнопку
     QHBoxLayout *btnLayout = new QHBoxLayout();
     btnLayout->addStretch();
     btnLayout->addWidget(loadBtn);
@@ -108,7 +111,7 @@ void MainWindow::cellDoubleClicked(int row, int)
         persons.remove(index);
         table->removeRow(index);
 
-        saveToFile("data.txt"); // 🔥 сохраняем файл
+        saveToFile("data.txt");
     });
 
     form->show();
