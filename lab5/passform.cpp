@@ -7,7 +7,8 @@
 #include <QFrame>
 #include <QLabel>
 #include <QPushButton>
-#include <Qdir>
+#include <QDir>
+#include <QDebug>
 
 PassForm::PassForm(Person* p, int index, QWidget *parent)
     : QWidget(parent), person(p), rowIndex(index)
@@ -51,12 +52,28 @@ PassForm::PassForm(Person* p, int index, QWidget *parent)
     if (pu) {
         line1->setText(pu->getLastName());
         line2->setText(pu->getFirstName());
-        line3->setText(pu->getMiddleName());
+
+        QString middle = pu->getMiddleName();
+        if (middle == "-" || middle.isEmpty()) {
+            line3->setText("");
+            line3->hide();
+        } else {
+            line3->setText(middle);
+        }
+
         dateLabel->setText(pu->getFormattedDate());
     }
     else if (am) {
         line1->setText(am->getFirstName());
-        line2->setText(am->getSecondName());
+
+        QString second = am->getSecondName();
+        if (second == "-" || second.isEmpty()) {
+            line2->setText("");
+            line2->hide();
+        } else {
+            line2->setText(second);
+        }
+
         line3->setText(am->getLastName());
         dateLabel->setText(am->getFormattedDate());
     }
@@ -73,7 +90,7 @@ PassForm::PassForm(Person* p, int index, QWidget *parent)
     QPushButton *printBtn = new QPushButton("Печать");
     QPushButton *cancelBtn = new QPushButton("Отмена");
 
-    printBtn->setStyleSheet("background-color: blue;");
+    printBtn->setStyleSheet("background-color: blue; color: white;");
     cancelBtn->setStyleSheet("background-color: red; color: white;");
 
     QHBoxLayout *btnLayout = new QHBoxLayout();
@@ -86,11 +103,13 @@ PassForm::PassForm(Person* p, int index, QWidget *parent)
     connect(printBtn, &QPushButton::clicked, this, &PassForm::printClicked);
     connect(cancelBtn, &QPushButton::clicked, this, &PassForm::cancelClicked);
 }
+
 void PassForm::printClicked()
 {
     emit personPrinted(rowIndex);
     close();
 }
+
 void PassForm::cancelClicked()
 {
     close();

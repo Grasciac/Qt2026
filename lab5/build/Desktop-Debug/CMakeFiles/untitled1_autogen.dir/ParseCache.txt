@@ -249,6 +249,7 @@ C:/Users/gegee/OneDrive/Документы/untitled1/mainwindow.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsexports.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsglobal.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qwidget.h
+C:/Users/gegee/OneDrive/Документы/untitled1/amp.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/passform.h
  mmc:Q_OBJECT
  mdp:C:/Users/gegee/OneDrive/Документы/untitled1/passform.h
@@ -482,11 +483,10 @@ C:/Users/gegee/OneDrive/Документы/untitled1/passform.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsexports.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsglobal.h
  mdp:F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qwidget.h
-C:/Users/gegee/OneDrive/Документы/untitled1/amp.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/person.h
 C:/Users/gegee/OneDrive/Документы/untitled1/pupil.h
-C:/Users/gegee/OneDrive/Документы/untitled1/main.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/mainwindow.cpp
+C:/Users/gegee/OneDrive/Документы/untitled1/main.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/passform.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/person.cpp
 C:/Users/gegee/OneDrive/Документы/untitled1/pupil.cpp

@@ -3,7 +3,7 @@
 
 #include <QString>
 
-class Person
+struct Person
 {
 protected:
     QString lastName;
@@ -11,12 +11,14 @@ protected:
     int day, month, year;
 
 public:
+    int getDay() const { return day; }
+    int getMonth() const { return month; }
+    int getYear() const { return year; }
     Person(QString l, QString f, int d, int m, int y);
     virtual ~Person() {}
 
     virtual QString craft() = 0;
 
-    // 🔥 НОВОЕ
     virtual QString getFormattedDate() const = 0;
 
     QString getDate() const;

@@ -27,13 +27,12 @@ MainWindow::MainWindow(QWidget *parent)
     QVBoxLayout *frameLayout = new QVBoxLayout(frame);
 
     table = new QTableWidget(this);
-    table->setColumnCount(2);
-    table->setHorizontalHeaderLabels({"ФИО", "Дата рождения"});
+    table->setColumnCount(4);
+    table->setHorizontalHeaderLabels({"Фамилия", "Имя", "Отчество/Второе имя", "Дата рождения"});
     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
     table->setWordWrap(true);
     table->resizeRowsToContents();
 
-    // === ДОБАВЛЕНО ===
     table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::Stretch);
     table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
 
@@ -74,32 +73,84 @@ void MainWindow::loadFromFile(QString path)
     table->setRowCount(0);
     persons.clear();
 
-    while (true) {
-        int type;
+    while (!in.atEnd()) {
+        QString line = in.readLine();
+        if (line.trimmed().isEmpty()) continue;
 
-        if (!(in >> type)) break;
+        QString delimiter = line.contains("|") ? "|" : " ";
+
+        QStringList parts = line.split(delimiter, Qt::SkipEmptyParts);
+        if (parts.size() < 6) continue;
+
+        int type = parts[0].toInt();
 
         if (type == 1) {
-            QString l, f, m;
-            int d, mo, y;
-            in >> l >> f >> m >> d >> mo >> y;
-
-            persons.push_back(new Pupil(l, f, m, d, mo, y));
-        } else {
-            QString f, s, l;
-            int d, mo, y;
-            in >> f >> s >> l >> d >> mo >> y;
-
-            persons.push_back(new AmP(f, s, l, d, mo, y));
+            if (parts.size() == 7) {
+                QString lastName = parts[1];
+                QString firstName = parts[2];
+                QString middleName = parts[3];
+                int day = parts[4].toInt();
+                int month = parts[5].toInt();
+                int year = parts[6].toInt();
+                persons.push_back(new Pupil(lastName, firstName, middleName, day, month, year));
+            }
+            else if (parts.size() == 6) {
+                QString lastName = parts[1];
+                QString firstName = parts[2];
+                QString middleName = "";
+                int day = parts[3].toInt();
+                int month = parts[4].toInt();
+                int year = parts[5].toInt();
+                persons.push_back(new Pupil(lastName, firstName, middleName, day, month, year));
+            }
+        }
+        else if (type == 2) {
+            if (parts.size() == 7) {
+                QString firstName = parts[1];
+                QString secondName = parts[2];
+                QString lastName = parts[3];
+                int day = parts[4].toInt();
+                int month = parts[5].toInt();
+                int year = parts[6].toInt();
+                persons.push_back(new AmP(firstName, secondName, lastName, day, month, year));
+            }
+            else if (parts.size() == 6) {
+                QString firstName = parts[1];
+                QString secondName = "";
+                QString lastName = parts[2];
+                int day = parts[3].toInt();
+                int month = parts[4].toInt();
+                int year = parts[5].toInt();
+                persons.push_back(new AmP(firstName, secondName, lastName, day, month, year));
+            }
         }
     }
 
     for (int i = 0; i < persons.size(); i++) {
         table->insertRow(i);
 
-        table->setItem(i, 0, new QTableWidgetItem(persons[i]->craft()));
-        table->setItem(i, 1, new QTableWidgetItem(persons[i]->getDate()));
+        Pupil* pu = dynamic_cast<Pupil*>(persons[i]);
+        AmP* am = dynamic_cast<AmP*>(persons[i]);
+
+        if (pu) {
+            table->setItem(i, 0, new QTableWidgetItem(pu->getLastName()));
+            table->setItem(i, 1, new QTableWidgetItem(pu->getFirstName()));
+            QString middle = pu->getMiddleName();
+            table->setItem(i, 2, new QTableWidgetItem(middle.isEmpty() ? "" : middle));
+        } else if (am) {
+            table->setItem(i, 0, new QTableWidgetItem(am->getLastName()));
+            table->setItem(i, 1, new QTableWidgetItem(am->getFirstName()));
+            QString second = am->getSecondName();
+            table->setItem(i, 2, new QTableWidgetItem(second.isEmpty() ? "" : second));
+        }
+
+        table->setItem(i, 3, new QTableWidgetItem(persons[i]->getDate()));
     }
+
+    table->horizontalHeader()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    table->horizontalHeader()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+    table->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
+    table->horizontalHeader()->setSectionResizeMode(3, QHeaderView::ResizeToContents);
 }
 
 void MainWindow::cellDoubleClicked(int row, int)
@@ -109,7 +160,6 @@ void MainWindow::cellDoubleClicked(int row, int)
     connect(form, &PassForm::personPrinted, this, [=](int index) {
         persons.remove(index);
         table->removeRow(index);
-
         saveToFile("data.txt");
     });
 
@@ -130,21 +180,22 @@ void MainWindow::saveToFile(QString path)
         AmP* am = dynamic_cast<AmP*>(p);
 
         if (pu) {
-            out << "1 "
-                << pu->getLastName() << " "
-                << pu->getFirstName() << " "
-                << pu->getMiddleName() << " "
-                << pu->getDate().replace(".", " ")
-                << "\n";
+            out << "1|"
+                << pu->getLastName() << "|"
+                << pu->getFirstName() << "|"
+                << pu->getMiddleName() << "|"
+                << pu->getDay() << "|"
+                << pu->getMonth() << "|"
+                << pu->getYear() << "\n";
         }
         else if (am) {
-            out << "2 "
-                << am->getFirstName() << " "
-                << am->getSecondName() << " "
-                << am->getLastName() << " "
-                << am->getDate().replace(".", " ")
-                << "\n";
+            out << "2|"
+                << am->getFirstName() << "|"
+                << am->getSecondName() << "|"
+                << am->getLastName() << "|"
+                << am->getDay() << "|"
+                << am->getMonth() << "|"
+                << am->getYear() << "\n";
         }
     }
 }
-
