@@ -44,11 +44,10 @@ void Program2Window::setupUI()
     QVBoxLayout* errorLayout = new QVBoxLayout(errorGroup);
 
     errorTable = new QTableWidget();
-    errorTable->setColumnCount(6);
-    errorTable->setHorizontalHeaderLabels({"Название", "Описание", "Сложность", "X", "Y", "Ошибка"});
+    errorTable->setColumnCount(5);
+    errorTable->setHorizontalHeaderLabels({"Название", "Описание", "Сложность", "X", "Y"});
     errorTable->horizontalHeader()->setStretchLastSection(true);
     errorTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    errorTable->setStyleSheet("QTableWidget { background-color: #ffcccc; }");
     errorLayout->addWidget(errorTable);
 
     tablesLayout->addWidget(correctGroup, 1);
@@ -135,28 +134,52 @@ void Program2Window::fillErrorTable(const QList<PointOfInterest>& errorPois)
 {
     errorTable->setRowCount(errorPois.size());
 
+    QColor errorColor(255, 200, 200); // Светло-красный
+
     for (int i = 0; i < errorPois.size(); ++i) {
         const PointOfInterest& poi = errorPois[i];
-        QString error = getValidationError(poi);
 
-        errorTable->setItem(i, 0, new QTableWidgetItem(poi.name));
-        errorTable->setItem(i, 1, new QTableWidgetItem(poi.description));
-        errorTable->setItem(i, 2, new QTableWidgetItem(QString::number(poi.difficulty)));
-        errorTable->setItem(i, 3, new QTableWidgetItem(QString::number(poi.x)));
-        errorTable->setItem(i, 4, new QTableWidgetItem(QString::number(poi.y)));
-        errorTable->setItem(i, 5, new QTableWidgetItem(error));
+        // Создаем ячейки
+        QTableWidgetItem *item0 = new QTableWidgetItem(poi.name);
+        QTableWidgetItem *item1 = new QTableWidgetItem(poi.description);
+        QTableWidgetItem *item2 = new QTableWidgetItem(QString::number(poi.difficulty));
+        QTableWidgetItem *item3 = new QTableWidgetItem(QString::number(poi.x));
+        QTableWidgetItem *item4 = new QTableWidgetItem(QString::number(poi.y));
+
+        // Проверяем и подсвечиваем только ошибочные ячейки
+        if (poi.name.isEmpty()) {
+            item0->setBackground(errorColor);
+        }
+
+        if (poi.description.isEmpty()) {
+            item1->setBackground(errorColor);
+        }
+
+        if (poi.difficulty < 0 || poi.difficulty > 10) {
+            item2->setBackground(errorColor);
+        }
+
+        // Устанавливаем ячейки в таблицу (всего 5 колонок)
+        errorTable->setItem(i, 0, item0);
+        errorTable->setItem(i, 1, item1);
+        errorTable->setItem(i, 2, item2);
+        errorTable->setItem(i, 3, item3);
+        errorTable->setItem(i, 4, item4);
     }
 }
 
 QString Program2Window::getValidationError(const PointOfInterest& poi)
 {
+    QStringList errors;
+
     if (poi.name.isEmpty())
-        return "Поле 'name' пустое";
+        errors << "name пустое";
     if (poi.description.isEmpty())
-        return "Поле 'description' пустое";
-    if (poi.difficulty < 1 || poi.difficulty > 10)
-        return "Сложность вне диапазона 1-10";
-    return "Неизвестная ошибка";
+        errors << "описание пустое";
+    else if (poi.difficulty < 1 || poi.difficulty > 10)
+        errors << "сложность вне 0-10";
+
+    return errors.isEmpty() ? "Неизвестная ошибка" : errors.join("; ");
 }
 
 void Program2Window::saveErrorObjects(const QList<PointOfInterest>& errorPois)
