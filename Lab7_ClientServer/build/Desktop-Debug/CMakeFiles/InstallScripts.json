@@ -1,0 +1,9 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/cmake_install.cmake",
+		"C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/asio_server/cmake_install.cmake",
+		"C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

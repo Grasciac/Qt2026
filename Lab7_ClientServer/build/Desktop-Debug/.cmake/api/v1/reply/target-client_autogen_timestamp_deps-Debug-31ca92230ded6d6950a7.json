@@ -1,0 +1,27 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"qt_client/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"id" : "client_autogen_timestamp_deps::@dbb518b07f47017d1d7d",
+	"isGeneratorProvided" : true,
+	"name" : "client_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "qt_client",
+		"source" : "qt_client"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

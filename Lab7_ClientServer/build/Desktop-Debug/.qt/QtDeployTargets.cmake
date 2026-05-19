@@ -1,0 +1,6 @@
+set(__QT_DEPLOY_TARGET_server_FILE C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/asio_server/server.exe)
+set(__QT_DEPLOY_TARGET_server_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_server_RUNTIME_DLLS )
+set(__QT_DEPLOY_TARGET_client_FILE C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/client.exe)
+set(__QT_DEPLOY_TARGET_client_TYPE EXECUTABLE)
+set(__QT_DEPLOY_TARGET_client_RUNTIME_DLLS F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/bin/Qt6Widgetsd.dll;F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/bin/Qt6Guid.dll;F:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/bin/Qt6Cored.dll)

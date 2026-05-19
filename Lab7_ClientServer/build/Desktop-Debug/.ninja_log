@@ -1,0 +1,24 @@
+# ninja log v6
+11	304	8009124637015119	qt_client/client_autogen/timestamp	68f3f95e454334ca
+11	304	8009124637015119	qt_client/client_autogen/mocs_compilation.cpp	68f3f95e454334ca
+11	304	8009124637015119	C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/client_autogen/timestamp	68f3f95e454334ca
+11	304	8009124637015119	C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/client_autogen/mocs_compilation.cpp	68f3f95e454334ca
+313	2320	8009124637562428	qt_client/CMakeFiles/client.dir/main_gui.cpp.obj	47ec925ff27e9314
+308	2355	8009124637527273	qt_client/CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.obj	425dc40413864bc3
+317	2922	8009124637610891	qt_client/CMakeFiles/client.dir/mainwindow.cpp.obj	bf38796beb3ad7a3
+18	3351	8009124634624573	asio_server/CMakeFiles/server.dir/main.cpp.obj	cc91d471dbf8e724
+3356	3773	8009124668001177	asio_server/server.exe	945dcabfc736809e
+321	4160	8009124637646049	qt_client/CMakeFiles/client.dir/__/common/game_room.cpp.obj	e369f1fdc0b3acc1
+39	246	8009125397602075	qt_client/client_autogen/timestamp	68f3f95e454334ca
+39	246	8009125397602075	qt_client/client_autogen/mocs_compilation.cpp	68f3f95e454334ca
+39	246	8009125397602075	C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/client_autogen/timestamp	68f3f95e454334ca
+39	246	8009125397602075	C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/client_autogen/mocs_compilation.cpp	68f3f95e454334ca
+250	1574	8009125397969472	qt_client/CMakeFiles/client.dir/main_gui.cpp.obj	47ec925ff27e9314
+247	1643	8009125397935227	qt_client/CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.obj	425dc40413864bc3
+253	1983	8009125398003539	qt_client/CMakeFiles/client.dir/mainwindow.cpp.obj	bf38796beb3ad7a3
+256	2137	8009125398028719	qt_client/CMakeFiles/client.dir/__/common/game_room.cpp.obj	e369f1fdc0b3acc1
+46	2329	8009125395931923	asio_server/CMakeFiles/server.dir/main.cpp.obj	cc91d471dbf8e724
+2137	2523	8009125416840741	qt_client/client.exe	5e029085afc1aa49
+2329	2524	8009125418763509	asio_server/server.exe	945dcabfc736809e
+31	2208	8009126559910689	asio_server/CMakeFiles/server.dir/main.cpp.obj	cc91d471dbf8e724
+2209	2432	8009126581685298	asio_server/server.exe	945dcabfc736809e

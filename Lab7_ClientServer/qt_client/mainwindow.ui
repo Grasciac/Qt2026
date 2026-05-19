@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry"><rect><x>0</x><y>0</y><width>450</width><height>500</height></rect></property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex"><number>0</number></property>
+      <widget class="QWidget" name="page_auth">
+       <layout class="QVBoxLayout">
+        <item><spacer name="verticalSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+        <item>
+         <layout class="QFormLayout">
+          <item row="0" column="0"><widget class="QLabel"><property name="text"><string>Адрес</string></property></widget></item>
+          <item row="0" column="1"><widget class="QLineEdit" name="le_ip"><property name="text"><string>127.0.0.1</string></property></widget></item>
+          <item row="1" column="0"><widget class="QLabel"><property name="text"><string>Порт</string></property></widget></item>
+          <item row="1" column="1"><widget class="QLineEdit" name="le_port"><property name="text"><string>7000</string></property></widget></item>
+          <item row="2" column="0"><widget class="QLabel"><property name="text"><string>Мой ID</string></property></widget></item>
+          <item row="2" column="1"><widget class="QLineEdit" name="le_id"/></item>
+         </layout>
+        </item>
+        <item><widget class="QPushButton" name="btn_connect"><property name="text"><string>Конект</string></property></widget></item>
+        <item><spacer name="verticalSpacer_2"><property name="orientation"><enum>Qt::Vertical</enum></property></spacer></item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_game">
+       <layout class="QGridLayout">
+        <item row="0" column="0" rowspan="2"><widget class="QWidget" name="canvas_container" native="true"><property name="minimumSize"><size><width>300</width><height>300</height></size></property></widget></item>
+        <item row="0" column="1"><widget class="QLabel" name="lb_weather"><property name="font"><font><pointsize>12</pointsize><bold>true</bold></font></property><property name="text"><string>Погода: Загрузка...</string></property></widget></item>
+        <item row="1" column="1">
+         <layout class="QVBoxLayout">
+          <item><layout class="QGridLayout">
+            <item row="0" column="1"><widget class="QPushButton" name="btn_up"><property name="text"><string>↑</string></property></widget></item>
+            <item row="1" column="0"><widget class="QPushButton" name="btn_left"><property name="text"><string>←</string></property></widget></item>
+            <item row="1" column="1"><widget class="QPushButton" name="btn_down"><property name="text"><string>↓</string></property></widget></item>
+            <item row="1" column="2"><widget class="QPushButton" name="btn_right"><property name="text"><string>→</string></property></widget></item>
+           </layout></item>
+          <item><widget class="QPushButton" name="btn_imitate"><property name="text"><string>Имитация</string></property></widget></item>
+         </layout>
+        </item>
+        <item row="2" column="0"><layout class="QHBoxLayout">
+          <item><widget class="QLabel"><property name="text"><string>Цвет:</string></property></widget></item>
+          <item><widget class="QComboBox" name="cb_color"/></item>
+         </layout></item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,141 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "asio_server",
+					"jsonFile" : "directory-asio_server-Debug-ce7c5af02a50cf2b7ced.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "asio_server",
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"build" : "qt_client",
+					"jsonFile" : "directory-qt_client-Debug-2b1d40c8b2c36f8afca6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 2,
+					"source" : "qt_client",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Lab7_ClientServer"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "ConsoleServer",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "QtClient",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "client::@dbb518b07f47017d1d7d",
+					"jsonFile" : "target-client-Debug-49fb5488f0eaa277de94.json",
+					"name" : "client",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "client_autogen::@dbb518b07f47017d1d7d",
+					"jsonFile" : "target-client_autogen-Debug-c7e092b3ddce466f1eae.json",
+					"name" : "client_autogen",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "client_autogen_timestamp_deps::@dbb518b07f47017d1d7d",
+					"jsonFile" : "target-client_autogen_timestamp_deps-Debug-31ca92230ded6d6950a7.json",
+					"name" : "client_autogen_timestamp_deps",
+					"projectIndex" : 2
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "server::@ede53bcaadb3d01d9ab5",
+					"jsonFile" : "target-server-Debug-9894a10d2d183d3bf493.json",
+					"name" : "server",
+					"projectIndex" : 1
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug",
+		"source" : "C:/Users/gegee/Qt2026/Lab7_ClientServer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 8
+	}
+}

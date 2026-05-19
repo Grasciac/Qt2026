@@ -1,0 +1,10 @@
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/asio_server/CMakeFiles/server.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/asio_server/CMakeFiles/edit_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/asio_server/CMakeFiles/rebuild_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/CMakeFiles/client.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/CMakeFiles/edit_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/CMakeFiles/rebuild_cache.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/CMakeFiles/client_autogen_timestamp_deps.dir
+C:/Users/gegee/Qt2026/Lab7_ClientServer/build/Desktop-Debug/qt_client/CMakeFiles/client_autogen.dir
