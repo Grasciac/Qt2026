@@ -1,0 +1,21 @@
+# ninja log v6
+7	276	8143050036273852	lab3k2_autogen/timestamp	b110a9331b55283b
+7	276	8143050036273852	lab3k2_autogen/mocs_compilation.cpp	b110a9331b55283b
+7	276	8143050036273852	C:/Users/gegee/OneDrive/Документы/lab3k2/build/QT_6-Debug/lab3k2_autogen/timestamp	b110a9331b55283b
+7	276	8143050036273852	C:/Users/gegee/OneDrive/Документы/lab3k2/build/QT_6-Debug/lab3k2_autogen/mocs_compilation.cpp	b110a9331b55283b
+287	2059	8143050036710125	CMakeFiles/lab3k2.dir/main.cpp.obj	d23d987258f36993
+281	2072	8143050036644820	CMakeFiles/lab3k2.dir/lab3k2_autogen/mocs_compilation.cpp.obj	98fb9f9f2a8599bc
+24	117	8143051124593680	lab3k2_autogen/timestamp	b110a9331b55283b
+24	117	8143051124593680	lab3k2_autogen/mocs_compilation.cpp	b110a9331b55283b
+24	117	8143051124593680	C:/Users/gegee/OneDrive/Документы/lab3k2/build/QT_6-Debug/lab3k2_autogen/timestamp	b110a9331b55283b
+24	117	8143051124593680	C:/Users/gegee/OneDrive/Документы/lab3k2/build/QT_6-Debug/lab3k2_autogen/mocs_compilation.cpp	b110a9331b55283b
+132	1526	8143051125677733	CMakeFiles/lab3k2.dir/binarytree.cpp.obj	df88da570b9c002c
+124	1785	8143051125592274	CMakeFiles/lab3k2.dir/main.cpp.obj	d23d987258f36993
+118	1824	8143051125536245	CMakeFiles/lab3k2.dir/lab3k2_autogen/mocs_compilation.cpp.obj	98fb9f9f2a8599bc
+128	1834	8143051125637400	CMakeFiles/lab3k2.dir/mainwindow.cpp.obj	b354014bd4b80b8f
+1835	3414	8143051142698775	lab3k2.exe	b9bde366a51d86cb
+40	1406	8143051906584654	CMakeFiles/lab3k2.dir/binarytree.cpp.obj	df88da570b9c002c
+32	1698	8143051906504433	CMakeFiles/lab3k2.dir/main.cpp.obj	d23d987258f36993
+25	1706	8143051906436171	CMakeFiles/lab3k2.dir/lab3k2_autogen/mocs_compilation.cpp.obj	98fb9f9f2a8599bc
+36	1712	8143051906544572	CMakeFiles/lab3k2.dir/mainwindow.cpp.obj	b354014bd4b80b8f
+1712	2606	8143051923303478	lab3k2.exe	b9bde366a51d86cb
