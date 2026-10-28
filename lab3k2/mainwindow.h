@@ -12,7 +12,7 @@
 #include <QMessageBox>
 #include "binarytree.h"
 
-class TreeWidget; // forward declaration
+class TreeWidget;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -36,7 +36,6 @@ private:
     QString postOrderResult;
     int divisibleCount;
 
-    // UI элементы
     QPushButton* btnLoad;
     QPushButton* btnPostOrder;
     QPushButton* btnSave;
@@ -49,7 +48,6 @@ private:
     TreeWidget* treeWidget;
 };
 
-// Виджет для отрисовки дерева
 class TreeWidget : public QWidget {
     Q_OBJECT
 public:

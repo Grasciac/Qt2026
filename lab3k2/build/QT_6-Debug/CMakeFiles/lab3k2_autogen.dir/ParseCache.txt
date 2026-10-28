@@ -269,6 +269,6 @@ C:/Users/gegee/OneDrive/Документы/lab3k2/mainwindow.h
  mdp:E:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsexports.h
  mdp:E:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qtwidgetsglobal.h
  mdp:E:/qt_sample_app/ext/qt-6.12.0-win10-22H2-x64-msvc-194/include/QtWidgets/qwidget.h
-C:/Users/gegee/OneDrive/Документы/lab3k2/binarytree.cpp
 C:/Users/gegee/OneDrive/Документы/lab3k2/main.cpp
+C:/Users/gegee/OneDrive/Документы/lab3k2/binarytree.cpp
 C:/Users/gegee/OneDrive/Документы/lab3k2/mainwindow.cpp

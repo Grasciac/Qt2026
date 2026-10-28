@@ -22,45 +22,44 @@ void TreeWidget::paintEvent(QPaintEvent* event) {
     painter.setRenderHint(QPainter::Antialiasing);
 
     int width = this->width();
-    int height = this->height();
-    int hSpacing = width / 4;
-    int vSpacing = 70;
+    int vSpacing = 65;
 
-    drawNode(root, &painter, width / 2, 40, hSpacing, vSpacing, 0);
+    drawNode(root, &painter, width / 2, 40, width / 2, vSpacing, 0);
 }
 
 void TreeWidget::drawNode(TreeNode* node, QPainter* painter,
                           int x, int y, int hSpacing, int vSpacing, int depth) {
     if (!node) return;
 
-    int radius = 22;
+    int radius = 20;
     int nextY = y + vSpacing;
-    int halfSpacing = hSpacing / 2;
+    int nextHSpacing = hSpacing / 2;
 
-    QPen linePen(QColor(100, 100, 100), 2);
+    QPen linePen(QColor(120, 120, 120), 2);
     painter->setPen(linePen);
 
     if (node->left) {
-        painter->drawLine(x, y + radius, x - halfSpacing, nextY - radius);
+        painter->drawLine(x, y, x - nextHSpacing, nextY);
     }
     if (node->right) {
-        painter->drawLine(x, y + radius, x + halfSpacing, nextY - radius);
+        painter->drawLine(x, y, x + nextHSpacing, nextY);
     }
 
-    QBrush brush(QColor(220, 230, 255));
+    QBrush brush(QColor(225, 235, 255));
     painter->setBrush(brush);
-    QPen circlePen(QColor(50, 50, 150), 2);
+
+    QPen circlePen(QColor(60, 80, 180), 2);
     painter->setPen(circlePen);
     painter->drawEllipse(QPoint(x, y), radius, radius);
 
     painter->setPen(QColor(0, 0, 0));
-    QFont font("Arial", 12, QFont::Bold);
+    QFont font("Arial", 11, QFont::Bold);
     painter->setFont(font);
     painter->drawText(QRect(x - radius, y - radius, radius * 2, radius * 2),
                       Qt::AlignCenter, QString::number(node->value));
 
-    drawNode(node->left, painter, x - halfSpacing, nextY, halfSpacing, vSpacing, depth + 1);
-    drawNode(node->right, painter, x + halfSpacing, nextY, halfSpacing, vSpacing, depth + 1);
+    drawNode(node->left, painter, x - nextHSpacing, nextY, nextHSpacing, vSpacing, depth + 1);
+    drawNode(node->right, painter, x + nextHSpacing, nextY, nextHSpacing, vSpacing, depth + 1);
 }
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent),

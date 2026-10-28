@@ -62,37 +62,25 @@ void BinaryTree::loadFromFile(const QString &filename) {
     root = buildTreeFromLevelOrder(values);
 }
 
-TreeNode* BinaryTree::buildTreeFromLevelOrder(const QVector<int> &values) {
-    if (values.isEmpty() || values[0] == -1) return nullptr;
-
-    TreeNode* root = new TreeNode(values[0]);
-    QVector<TreeNode*> queue;
-    queue.append(root);
-
-    int index = 1;
-    while (!queue.isEmpty() && index < values.size()) {
-        TreeNode* current = queue.first();
-        queue.removeFirst();
-
-        if (index < values.size()) {
-            if (values[index] != -1) {
-                current->left = new TreeNode(values[index]);
-                queue.append(current->left);
-            }
-            index++;
-        }
-
-        if (index < values.size()) {
-            if (values[index] != -1) {
-                current->right = new TreeNode(values[index]);
-                queue.append(current->right);
-            }
-            index++;
-        }
+TreeNode* BinaryTree::buildTreeWithIndex(const QVector<int> &values, int index) {
+    if (index >= values.size() || values[index] == -1) {
+        return nullptr;
     }
 
-    return root;
+    TreeNode* node = new TreeNode(values[index]);
+
+    node->left = buildTreeWithIndex(values, 2 * index + 1);
+    node->right = buildTreeWithIndex(values, 2 * index + 2);
+
+    return node;
 }
+
+TreeNode* BinaryTree::buildTreeFromLevelOrder(const QVector<int> &values) {
+    if (values.isEmpty()) return nullptr;
+    return buildTreeWithIndex(values, 0);
+}
+
+
 
 QString BinaryTree::postOrderTraversal() const {
     QList<int> result;

@@ -17,22 +17,16 @@ public:
     BinaryTree();
     ~BinaryTree();
 
-    // Построение дерева из файла (послойный обход)
     void loadFromFile(const QString &filename);
 
-    // Сохранение результата обхода в файл
     void saveToFile(const QString &filename, const QString &data);
 
-    // Постфиксный обход (ЛПУ: Left, Right, Root)
     QString postOrderTraversal() const;
 
-    // Подсчёт узлов, значения которых кратны 3
     int countNodesDivisibleBy3() const;
 
-    // Получить корень
     TreeNode* getRoot() const;
 
-    // Очистка дерева
     void clear();
 
 private:
@@ -42,8 +36,9 @@ private:
     int countDivisibleBy3Helper(TreeNode* node) const;
     void clearHelper(TreeNode* node);
 
-    // Вспомогательная функция для построения дерева из послойного обхода
     TreeNode* buildTreeFromLevelOrder(const QVector<int> &values);
+    TreeNode* buildTreeWithIndex(const QVector<int> &values, int index);
+
 };
 
 #endif // BINARYTREE_H
