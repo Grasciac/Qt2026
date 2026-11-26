@@ -34,9 +34,7 @@ static bool writeFile(const QString &path, const QString &data) {
     return true;
 }
 static QString oneLine(const QString &s) { return QString(s).replace(QLatin1Char('\n'), QChar(0x21B5)); }
-// для ячеек таблицы: перевод строки показываем как ↵, оригинал храним в m_variants
 
-// ---------- конструктор: сборка интерфейса ----------
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     auto *central = new QWidget(this); setCentralWidget(central);
     auto *root = new QVBoxLayout(central);
@@ -205,7 +203,7 @@ void MainWindow::saveVariantCode() {
         log(tr("Код варианта #%1 сохранён: %2").arg(row + 1).arg(p));
 }
 
-// ---------- поиск в исходном файле: сравнение ПО КОДУ МОРЗЕ ----------
+// ---------- поиск в исходном файле: сравнение по коду морзе ----------
 int MainWindow::matchVariants(const QStringList &origCodes, const QVector<int> &lineNos, const QString &path) {
     for (int i = 0; i < m_variants.size(); ++i) {
         QStringList vcodes;                                   // коды строк варианта

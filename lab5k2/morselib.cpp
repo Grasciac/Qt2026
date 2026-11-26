@@ -188,6 +188,7 @@ QStringList recoverVariants(const QString &corrupted, int maxCycles, int maxVari
     const int maxFlips = (1 << maxCycles) - 1;
     const int maxGroup = (1 << maxCycles);
     if (truncated) *truncated = false;
+    if (maxVariants < 1) maxVariants = 1;
 
     QVector<Var> acc = { Var{QString(), 0, 0, 0} };
     const QStringList lines = corrupted.split(QLatin1Char('\n'));
@@ -196,24 +197,34 @@ QStringList recoverVariants(const QString &corrupted, int maxCycles, int maxVari
         const QStringList words = lineWords(line);
         for (const QString &w : words) {
             const QStringList lets = wordLetters(w);
+            const int n = int(lets.size());
+
+            // BEST-FIRST по разбиениям слова: варианты выдаются в порядке возрастания cost,
+            // поэтому лимит оставляет самые правдоподобные (мин. штраф), а не первые из DFS.
             QVector<Var> wordVars;
-            std::function<void(int, QString, int, int, int)> dfs =
-                [&](int idx, QString prefix, int merges, int flips, int letters) {
-                    if (int(wordVars.size()) >= maxVariants) { if (truncated) *truncated = true; return; }
-                    if (idx == int(lets.size())) { wordVars.push_back(Var{prefix, merges, flips, letters}); return; }
-                    for (int g = 1; g <= maxGroup && idx + g <= int(lets.size()); ++g) {
-                        QString concat;
-                        for (int q = idx; q < idx + g; ++q) concat += lets[q];
-                        for (const auto &kv : CODE2CHAR) {
-                            int fl = 0;
-                            if (matchesFlips(concat, kv.first, maxFlips, fl))
-                                dfs(idx + g, prefix + kv.second, merges + (g - 1), flips + fl, letters + 1);
+            struct St { QString prefix; int idx, merges, flips, letters; };
+            auto cmp = [](const QPair<quint64, St> &a, const QPair<quint64, St> &b) { return a.first > b.first; };
+            std::priority_queue<QPair<quint64, St>, QVector<QPair<quint64, St>>, decltype(cmp)> pq(cmp);
+            pq.push({ 0, St{QString(), 0, 0, 0, 0} });
+            while (!pq.empty() && int(wordVars.size()) < maxVariants) {
+                const St cur = pq.top().second; pq.pop();
+                if (cur.idx == n) { wordVars.push_back(Var{cur.prefix, cur.merges, cur.flips, cur.letters}); continue; }
+                for (int g = 1; g <= maxGroup && cur.idx + g <= n; ++g) {
+                    QString concat;
+                    for (int q = cur.idx; q < cur.idx + g; ++q) concat += lets[q];
+                    for (const auto &kv : CODE2CHAR) {
+                        int fl = 0;
+                        if (matchesFlips(concat, kv.first, maxFlips, fl)) {
+                            St ns{ cur.prefix + kv.second, cur.idx + g,
+                                  cur.merges + (g - 1), cur.flips + fl, cur.letters + 1 };
+                            const quint64 c = (quint64(ns.merges + ns.flips) << 32) | quint64(ns.letters);
+                            pq.push({ c, ns });
                         }
                     }
-                };
-            dfs(0, QString(), 0, 0, 0);
-            std::sort(wordVars.begin(), wordVars.end(),
-                      [](const Var &a, const Var &b) { return costOf(a) < costOf(b); });
+                }
+            }
+            if (!pq.empty() && truncated) *truncated = true;
+
             lineAcc = combineBest(lineAcc, wordVars, QLatin1Char(' '), maxVariants, truncated);
             if (lineAcc.isEmpty()) return QStringList();
         }
